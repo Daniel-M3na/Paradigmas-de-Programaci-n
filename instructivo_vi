@@ -1,0 +1,18 @@
+
+-------------------------MANUAL DE VI------------------------
+R -> escribir reemplazando				-----
+esc -> salid de modo escritura				-----
+i -> escribir insertando				-----	
+o -> abrir renglon abajo				-----
+O -> abrir renglon arriba x -> borrar 			-----
+dd -> borrar todo el renglon				-----
+D -> borrar renglon desde este espacio 			-----
+:w -> guardar						-----
+:wq -> guardar y salir					-----
+:q! -> salir sin guardar				-----
+/palabra -> buscar  "palabra" 				-----
+/palabra n -> buscar  la siguiente 			-----	
+/palabra N -> buscar la anterior			-----	
+:30 -> se va la linea 30				-----
+:$ -> se va a ultima linea				-----
+-------------------------------------------------------------[
