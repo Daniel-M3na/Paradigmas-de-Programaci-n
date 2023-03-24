@@ -1,5 +1,10 @@
 ''' ESTE ES UN SUPER COMENTARIO DE INICIO DE A NUESTRO RESUMEN'''
 
+#===============================
+# LABORATORIO DE PYTHON PARTE 1
+#===============================
+
+
 #===================
 #Operaciones básicas
 #===================
@@ -83,9 +88,40 @@ say_hello("Daniel")
 
 
 
+#===============================
+# LABORATORIO DE PYTHON PARTE 2
+#===============================
 
+#====================
+# Conjunto de Python
+#====================
+even_nums = {2, 4, 6, 8, 10}
+print(even_nums)
 
+#El bool no es parte del conjunto
+emp = {1,'Steve', 10.5, True} # Conjunto de diferentes objetos
+print(emp)
 
+nums = {1, 2, 2, 3, 4, 4, 5, 5}
+print(nums)
+
+#==================================
+# Convertir secuencia a conjunto
+# NO lo genera en orden
+#==================================
+
+s = set('Hello')
+print(s)
+s = set((1,2,3,4,5)) # Tupla a conjunto
+print(s)
+
+#===============================================
+# De diccionario a conjunto: Conjunto de llaves
+#===============================================
+
+d = {1: 'One', 2: 'Two'}
+s = set(d)
+print(s)
 
 
 
