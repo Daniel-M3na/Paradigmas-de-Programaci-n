@@ -52,7 +52,7 @@ list = [1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12]
 
-matriz = [ [1,2,3,4],[5,6,7,8].[9,10,11,12] ]
+matriz = [ [1,2,3,4],[5,6,7,8],[9,10,11,12] ]
 
 print(list)
 print(matriz)
@@ -69,7 +69,7 @@ for i in list:
     print("ok")
 if 10>5:
     print("verdadero")
-    if 10<20
+    if 10<20:
         print("verdadero")
 elif 5>3:   #comienza segundo condicional
     print ("esto no se imprimirá")
@@ -178,7 +178,7 @@ romNums = {'I':1, 'II':2, 'III':3, 'IV':4, 'V':5}
 print(romNums)
 print(romNums["I"])
 
-print(capitals.get("India")
+print(capitals.get("India"))
 print(capitals.get("india"))
 
 
@@ -255,7 +255,7 @@ del nums
 #=============
 L1 = [1,2,3]
 L2 = [4,5,6]
-print(L1+L2]
+print(L1+L2)
 
 #================
 # Llenado a mano
@@ -271,6 +271,10 @@ print(potencial[100])
 potencial = tuple(potencial)
 print(potencial[100])
 
+
+#===============================
+# LABORATORIO DE PYTHON PARTE 3
+#===============================
 
 
 
