@@ -21,7 +21,7 @@ print (10%0.1) # exclusivo en python.
 #=========================================
 
 t=0
-print(typetype(t)) # entero
+print(type(t)) # entero
 t=3.6
 print(type(t)) # real (flotante)
 t=True
@@ -184,7 +184,7 @@ print(capitals.get("india"))
 
 # Reportar llave y valor 
 for k in capitals:
-    print("Key =" + k + "Value =", + capitals[K])
+    print("Key =" + k + ",Value =" + capitals[k])
 
 #Nuevo dato para el diccionario
 capitals["Mexico"] = "CDMX"
@@ -198,15 +198,15 @@ print(capitals)
 del capitals
 
 # Reportar llaves
-print(romanNums.key())
+print(romNums.keys())
 
 #Reportar valores
-print(romanNums.values())
+print(romNums.values())
 
 # Juicio de llaves (esta o no esta la llave en el diccionario)
-print("I" in romanNums)
-print("X" in romanNUms)
-print("XX" in romanNums)
+print("I" in romNums)
+print("X" in romNums)
+print("XX" in romNums)
 
 #=============================================
 # Listas
@@ -275,7 +275,7 @@ print(potencial[100])
 #===============================
 # LABORATORIO DE PYTHON PARTE 3
 #===============================
-
+  
 #================
 # Condicionales
 #================
@@ -346,7 +346,7 @@ num = 0
 while num < 5:
     num += 1
     if num > 3:
-        continue    #Evitarl lo que sigue, continua con las iteraciones
+        continue    #Evita lo que sigue, continua con las iteraciones
     print('num = ', num)
 
 #==================
@@ -356,6 +356,50 @@ nums = [10, 20, 30, 40, 50]
 for i in nums:
     print(i)
 
+#=======================
+# Bucle sobre un string
+#=======================
+for char in 'Hello':
+    print(char)
+
+#============================
+# Bucle sobre un diccionario
+# items = elementos
+#============================
+numNames = {1: 'One', 2: 'Two', 3:'Three'}
+for pair in numNames.items():
+    print(pair)
+
+#=========================
+# Bucle sobre diccionario 
+# key = llave
+# value = valor
+#==========================
+
+for k,v in numNames.items():
+    print("key =", k, ", value =", v)
 
 
+#================
+# Primera funcion
+#================
+def saludo():
+    #===================================
+    # Documentacion rapida de la funcion
+    #===================================
+    """Esta funcion saluda"""
+    print('¡Quiuboles!, ¿como estas?')
 
+#=======================
+# Llamado de la funcion
+#=======================
+saludo()
+
+#==============================
+# S ejecuta pero no se asigna
+#==============================
+salida = saludo()
+
+#==================
+# Esto no funciona
+#=================
