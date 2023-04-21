@@ -98,10 +98,166 @@ estudiante.name = "Diego"
 # __nombre es una variable encapsulada (no visible desde fuera)
 # (sin tener que llamar explícitamente a la función obtener_nombre
 #==================================================================
-print(estudiante.nombre)
+print(estudiante.name)
 
 # Esto no funciona: print(estudiante.__nombre)
 
-#=================
-# Herencia
-#=================
+#===================
+# Herencia de clases
+#===================
+class Cuadrilatero:
+    def __init__(self,a,b,c,d):
+        self.lado1 = a
+        self.lado2 = b
+        self.lado3 = c
+        self.lado4 = d
+
+    def perimetro(self):
+        p = self.lado1 + self.lado2 + self.lado3 + self.lado4
+        print("Perimetro:",p)
+        return p
+
+#====================================
+# Su hijo rectángulo
+# Rectángulo es hijo de Cuadrilátero
+# Rectángulo (Cuadrilátero)
+#====================================
+class Rectangulo(Cuadrilatero):
+    def __init__(self,a,b):
+        #=========================
+        # Constructor de su madre
+        #=========================
+        super().__init__(a,b,a,b)
+
+#=====================
+# Su nietro Cuadrado
+# Hijo de rectángulo
+#=====================
+class Cuadrado(Rectangulo):
+    def __init__(self,a):
+        super().__init__(a,a)
+
+    def area(self):
+        area = self.lado1**2
+        return area
+
+    # def perimetro(self):
+    #   p = 4.0*self.lado1
+    #   print("Perimetro:",p)
+    #   return p
+
+#===================
+# Crear un cuadrado
+#===================
+cuadrado1 = Cuadrado(5)
+
+#======================================================
+# Llamar al método perímetro de su abuelo Cuadrilátero
+#======================================================
+perimetro1 = cuadrado1.perimetro()
+
+#================================
+# Llamar a su propio método área
+#================================
+area1= cuadrado1.area()
+
+print("Perímetro =",perimetro1)
+print("Area =",area1)
+
+#================================================================
+# Sobre-escribir un método de su madre o abuela o tatarabuela...
+# Es volver a definir una función ya existente
+#================================================================
+
+#======================================
+# La clase A tiene tres números reales
+#======================================
+class A:
+    __a: float = 0.0
+    __b: float = 0.0
+    __c: float = 0.0
+
+    def __init__(self, a:float, b:float, c:float):
+        self.a = a
+        self.b = b
+        self.c = c
+
+#=====================================
+# La clase B tiene dos números reales
+#=====================================
+class B:
+    __d:float = 0.0
+    __e:float = 0.0
+
+    def __init__(self,d:float,e:float):
+        self.d = d
+        self.e = e
+
+        #========================================
+        # Método sumar todo (internos + externos)
+        #========================================
+        def sumar_todo(self,aa:float,bb:float):
+            x:float = self.d + self.e +aa + bb
+            return x
+
+#============
+# ASOCIACIÓN
+#============
+# Usando objetos independientes
+
+objetoA = A(1.0,2.0,3.0)
+objetoB = B(4.0,5.0)
+#print(objetoB.sumar_todo(objetoA.a,objetoA.b))
+
+#============================================
+# El objeto C tiene dos reales y un objeto A
+# El objeto A se instancia dentro de C
+#=============================================
+class C:
+    __d:float = 0.0
+    __e:float = 0.0
+    __Aa:A = None
+
+    def __init__(self,d:float,e:float):
+        self.d = d
+        self.e = e
+        # A está intanciado adentro
+        self.Aa = A(1.0,2.0,3.0)
+
+    def sumar_todo(self):
+        x:float = self.d + self.e + self.Aa.a + self.Aa.b
+        return x
+
+#=============================
+# COMPOSICIÓN
+# Contiene otro objeto dentro
+#=============================
+objetoC = C(4.0,5.0)
+print(objetoC.sumar_todo())
+
+
+#==========================================
+# Objeto D tiene dos reales y un objeto A
+# definido por fuera
+#==========================================
+class D:
+    __d:float = 0.0
+    __e:float = 0.0
+    __Aa:A = None
+
+    def __int__(self,d:float,e:float,Aa:A):
+        self.d = d
+        self.e = e
+        selfd.Aa = Aa
+
+        def sumar_todo(self):
+            x:float = self.d +self.e +self.Aa.a +self.Aa.b
+            return x
+
+#=========================================
+# AGREGACIÓN
+# Construye el objeto agregado por fuera
+#=========================================
+objetoD = D(4.0,5.0,objetoA)
+print(objetoD.sumar_todo())
+
