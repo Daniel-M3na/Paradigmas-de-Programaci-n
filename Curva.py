@@ -62,32 +62,32 @@ class Curva:
                 d += (s.x[ip1+j*s.n]-s.x[i+j*s.n])**2
             t += d**0.5
             s.l.append(t)
-         #s.L = t
-         #s.dx = t/float(s.n)
+        s.L = t
+        s.dx = t/float(s.n)
 
     #===============
     # Interpolación
     #===============
-    #def interpolacion(s,p:int=0, r:float=0.0) -> list:
-    #    """ r es el parámteros sobre la curva [0,1)
-    #        p es la suavidad de la curva"""
-    #    rdx:np.float64 = 1.0/s.dx
-    #    xi:float = []
-    #    i:np.int32 = int(r*s.L*rdx)
-    #    a:np.float64 = r*s.L*rdx - float(i) # Distancia normalizada
+    def interpolacion(s,p:int=0, r:float=0.0) -> list:
+        """ r es el parámteros sobre la curva [0,1)
+            p es la suavidad de la curva"""
+        rdx:np.float64 = 1.0/s.dx
+        xi:float = []
+        i:np.int32 = int(r*s.L*rdx)
+        a:np.float64 = r*s.L*rdx - float(i) # Distancia normalizada
 
         #=========================
         # Interpolación lineal C0
         #=========================
-    #    if p == 0:
-    #        ip1:np.int32 = i+1
-    #        if i == s.n-1:
-    #            ip1 = 0
-    #        xi.append(a*s.x[ip1] + (1.0-a)*s.x[i])
-    #        for j in range(1,s.dim):
-    #            xi.append(a*s.x[ip1+j*s.n]+(1.0-a)*s.x[i+j*s.n])
+        if p == 0:
+            ip1:np.int32 = i+1
+            if i == s.n-1:
+                ip1 = 0
+            xi.append(a*s.x[ip1] + (1.0-a)*s.x[i])
+            for j in range(1,s.dim):
+                xi.append(a*s.x[ip1+j*s.n]+(1.0-a)*s.x[i+j*s.n])
 
-    #    return xi
+        return xi
 
 #=============================================================================
 # Función zspline crea el Z-spline de un conjutno de puntos en dim dimensiones
@@ -95,7 +95,7 @@ class Curva:
 # x,y = zspline(conjunto de puntos, dimensión, número de segmentos,continudidad)
 #=============================================================================
 
-def zspline(puntos,dim,ncont):
+def zspline(puntos,dim,n,cont):
 
     curva = Curva(puntos,dim)
     dx:np.float64 = 1.0/float(n)
