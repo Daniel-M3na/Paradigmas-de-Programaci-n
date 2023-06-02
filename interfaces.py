@@ -36,7 +36,7 @@ usuario = Usuario("Roberto","Jimenenz",18)
 #====================
 # CRear el objeto s3
 #====================
-repositorioS3 = Se("321321321","sdf324223","MiCubeta")
+repositorioS3 = S3("321321321","sdf324223","MiCubeta")
 
 #=============================================================
 # Interface inscribirUsuario del objeto ManejoDeInscripciones

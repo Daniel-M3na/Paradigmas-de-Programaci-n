@@ -18,7 +18,7 @@ class S3(RepositorioDeUsuarios):
         print(f"Estableciendo conexión a AWS S3 {mi.__clientId}:{mi.__secretKey}")
 
     def guardar(mi,usuario:Usuario) -> None:
-        userData = {"nombre": usuario.getNombre(),"apellido":usuario.getApellido,"edad":usuario.getDad()}
+        userData = {"nombre": usuario.getNombre(),"apellido":usuario.getApellido,"edad":usuario.getEdad()}
         print("Guardando usuario de la bandeja_ {mi.__bucket}: {userData}")
 
     def cerrar(mi) -> None:
