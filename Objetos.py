@@ -245,14 +245,14 @@ class D:
     __e:float = 0.0
     __Aa:A = None
 
-    def __int__(self,d:float,e:float,Aa:A):
+    def __init__(self,d:float,e:float,Aa:A):
         self.d = d
         self.e = e
-        selfd.Aa = Aa
+        self.Aa = Aa
 
-        def sumar_todo(self):
-            x:float = self.d +self.e +self.Aa.a +self.Aa.b
-            return x
+    def sumar_todo(self):
+        x:float = self.d +self.e +self.Aa.a +self.Aa.b
+        return x
 
 #=========================================
 # AGREGACIÓN
