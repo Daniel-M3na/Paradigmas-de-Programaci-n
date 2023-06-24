@@ -32,18 +32,20 @@ print("Celdas = ",nt)
 def evolucion(u,n_0,n_1,udx2_0,udx2_1,dt,kd,i):
     jp1 = i + n_0
     jm1 = i - n_0
-    laplaciano = (u[i-1]-2.0*u[i+1])*udx2_0 + (u[jm1]-2.0*u[jp1])*udx2_1
+    laplaciano = (u[i-1]-2.0*u[i]+u[i+1])*udx2_0 + (u[jm1]-2.0*u[i]+u[jp1])*udx2_1
     unueva = u[i] + dt*kd*laplaciano
     return unueva
+
+evolucion_gpu = cuda.jit(device = True)(evolucion)
 
 @cuda.jit
 def solucion_kernel(u_d,un_d,udx2_0,udx2_1,dt,n_0,n_1,kd):
     ii, jj = cuda.grid(2)
     i = ii + n_0*jj
-    if ii == 0 or jj == 0 or ii == n_0-1 or j == n_1-1:
+    if ii == 0 or jj == 0 or ii == n_0-1 or jj == n_1-1:
         unueva = 0.0
     else:
-        unueva = evoucion_gpu(u_d,n_0,n_1,udx2_0,udx2_1,dt,kd,i)
+        unueva = evolucion_gpu(u_d,n_0,n_1,udx2_0,udx2_1,dt,kd,i)
     if i == int((n_0*n_1)/2)+int(n_0/2):
         unueva = 1.0
     un_d[i] = unueva
@@ -81,4 +83,3 @@ x,y = np.meshgrid(np.arange(0,L[0],dx[0]),np.arange(0,L[1],dx[1]))
 ax = plt.axes(projection = '3d')
 ax.plot_surface(x,y,u,cmap = cm.hsv)
 plt.show()
-
